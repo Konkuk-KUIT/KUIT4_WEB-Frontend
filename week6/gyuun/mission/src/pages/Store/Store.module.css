@@ -1,0 +1,169 @@
+.box{
+    position: absolute;
+    top: 88px;
+    /* display: flex;
+    flex-direction: column; */
+    
+    border-bottom: 1px solid #E5E8EB
+}
+.namebox{
+    width: 390px;
+height: 59px;
+gap: 0px;
+opacity: 0px;
+position: relative;
+}
+.name{
+    /* width: 141px; */
+height: 31px;
+top: 26px;
+left: 24px;
+gap: 0px;
+opacity: 0px;
+position: absolute;
+font-family: Pretendard;
+font-size: 27px;
+font-weight: 700;
+line-height: 31.03px;
+text-align: left;
+
+}
+.starbox{
+    width: 390px;
+height: 38px;
+gap: 0px;
+opacity: 0px;
+position: relative;
+}
+.star{
+    width: 18px;
+height: 19px;
+top: 7px;
+left: 23px;
+gap: 0px;
+border-radius: 1px;
+opacity: 0px;
+position: absolute;
+
+/* background: #FFD158; */
+
+}
+.rate{
+    position: absolute;
+    width: 26px;
+height: 20px;
+top: 6px;
+left: 46px;
+gap: 0px;
+opacity: 0px;
+font-family: Pretendard;
+font-size: 15px;
+font-weight: 600;
+line-height: 20.29px;
+text-align: left;
+color: #4E5968;
+
+}
+.review{
+    /* width: 69px; */
+height: 19px;
+top: 7px;
+left: 81px;
+gap: 0px;
+opacity: 0px;
+position: absolute;
+font-family: Pretendard;
+font-size: 15px;
+font-weight: 500;
+line-height: 19.09px;
+text-align: left;
+color: #4E5968;
+
+}
+.asign{
+    width: 390px;
+height: 28px;
+gap: 0px;
+opacity: 0px;
+position: relative;
+}
+.toss{
+    position: absolute;
+    /* width: 52px; */
+height: 18px;
+top: 9px;
+left: 24px;
+gap: 0px;
+opacity: 0px;
+font-family: Pretendard;
+font-size: 15px;
+font-weight: 500;
+line-height: 17.9px;
+text-align: left;
+color: #4E5968;
+
+}
+.minprice{
+    width: 390px;
+height: 28px;
+gap: 0px;
+opacity: 0px;
+position: relative;
+}
+.minpdeliveryprice{
+    position: absolute;
+    /* width: 52px; */
+height: 18px;
+top: 9px;
+left: 24px;
+gap: 0px;
+opacity: 0px;
+font-family: Pretendard;
+font-size: 15px;
+font-weight: 500;
+line-height: 17.9px;
+text-align: left;
+color: #4E5968;
+
+}
+.time{
+    width: 390px;
+height: 41px;
+gap: 0px;
+opacity: 0px;
+position: relative;
+}
+.deliverytime{
+height: 18px;
+top: 9px;
+left: 24px;
+gap: 0px;
+opacity: 0px;
+position: absolute;
+font-family: Pretendard;
+font-size: 15px;
+font-weight: 500;
+line-height: 17.9px;
+text-align: left;
+color: #4E5968;
+
+}
+.salad{
+height: 20px;
+top: 308px;
+left: 24px;
+gap: 0px;
+opacity: 0px;
+position: absolute;
+font-family: Pretendard;
+font-size: 17px;
+font-weight: 600;
+line-height: 20.29px;
+text-align: left;
+color: #6B7684;
+
+}
+.menu{
+    position: absolute;
+    top: 339px;
+}

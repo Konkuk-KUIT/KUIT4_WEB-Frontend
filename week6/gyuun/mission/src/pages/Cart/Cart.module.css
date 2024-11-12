@@ -1,0 +1,154 @@
+.cartbox{
+    position: absolute;
+    top: 88px;
+}
+.grayBox{
+    width: 390px;
+    height: 16px;
+   
+    background: #F2F4F6;
+
+}
+.whiteBox{
+    width: 390px;
+    height: 16px;
+   
+    background: white;
+
+}
+.saladaccount{
+    width: 390px;
+    height: 168px;
+    position: relative;
+}
+.storename{
+    /* width: 93px; */
+height: 20px;
+top: 26px;
+left: 24px;
+position: absolute;
+font-family: Pretendard;
+font-size: 17px;
+font-weight: 700;
+line-height: 20.29px;
+text-align: left;
+color: #6B7684;
+}
+.storebottom{
+    width: 390px;
+height: 110px;
+top: 58px;
+position: relative;
+
+}
+.saladbox{
+    width: 54px;
+height: 54px;
+top: 77px;
+left: 24px;
+border-radius: 8px;
+position: absolute;
+background: #ECECEC;
+
+}
+.saladname{
+    /* width: 93px; */
+height: 20px;
+top: 16px;
+left: 95px;
+position: absolute;
+color: #333D4B;
+font-family: Pretendard;
+font-size: 17px;
+font-weight: 700;
+line-height: 20.29px;
+text-align: left;
+
+}
+.ingredient{
+    width: 210px;
+height: 32px;
+top: 41px;
+left: 94px;
+position: absolute;
+font-family: Pretendard;
+font-size: 13px;
+font-weight: 500;
+line-height: 15.51px;
+text-align: left;
+color: #6B7684;
+}
+.account{
+    position: absolute;
+font-family: Pretendard;
+font-size: 13px;
+font-weight: 500;
+line-height: 15.51px;
+text-align: left;
+color: #6B7684;
+width: 53px;
+height: 16px;
+top: 78px;
+left: 93px;
+
+
+}
+.plusA{
+    width: 390px;
+height: 59px;
+border-top: 1px solid #E5E8EB;
+position: relative;
+}
+.blueplus{
+    width: 68px;
+height: 20px;
+top: 19px;
+left: 161px;
+color: #3182F6;
+
+position: absolute;
+}
+.asigncount{
+    height: 147px;
+}
+.asignaccount{
+    width: 390px;
+height: 38px;
+
+display: flex;
+justify-content: space-between;
+    align-items: center; 
+}
+.asignfont{
+    font-family: Pretendard;
+font-size: 17px;
+font-weight: 500;
+line-height: 20.29px;
+text-align: right;
+
+}
+
+
+.Botbox{
+    width: 390px;
+height: 129px;
+position: relative;
+
+
+}
+.minde{
+    height: 20px;
+    left: 113px;
+    position: absolute;
+    font-family: Pretendard;
+font-size: 17px;
+font-weight: 500;
+line-height: 20.29px;
+text-align: center;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+color: #6B7684;
+}
+/* .buttonbox{
+
+} */
