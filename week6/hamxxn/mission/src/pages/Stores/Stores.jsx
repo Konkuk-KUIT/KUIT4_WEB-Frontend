@@ -1,10 +1,11 @@
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import OrderBar from "../../components/OrderBar/OrderBar";
 import StatusBar from "../../components/StatusBar/StatusBar";
 import StoreDetail from "../../components/StoreDetail/StoreDetail";
 import { CategoryTitle, StoreDetailWrapper } from "./Store.styles";
+import { useEffect, useState } from "react";
 
-import stores from "../../models/stores.js";
+import { getStores } from "../../apis/stores";
 
 const addRankToStores = (stores) => {
   const sortedStores = [...stores].sort((a, b) => b.rate - a.rate);
@@ -18,29 +19,35 @@ const addRankToStores = (stores) => {
   });
 };
 const Stores = () => {
-  const statusBarHeight = getComputedStyle(
-    document.documentElement
-  ).getPropertyValue("--status-bar");
-  const widthV = getComputedStyle(document.documentElement).getPropertyValue(
-    "--width-variable"
-  );
-
   const [searchParams] = useSearchParams();
   const category = searchParams.get("category");
-  const sortStores = addRankToStores(stores);
+  const [stores, setStores] = useState([]);
+  //stores 정보 가져오기
+  useEffect(() => {
+    getStores().then((value) => setStores(value));
+    const sortStores = addRankToStores(stores);
+    setStores(sortStores);
+  }, []);
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/");
+  };
+
   return (
     <>
-      <StatusBar back={true} />
+      <StatusBar back={true} onClick={handleClick} />
       <div
         style={{
-          marginTop: statusBarHeight,
+          marginTop: "var(--status-bar)",
           padding: "20px 20px",
-          width: widthV,
+          width: "var(--width-variable)",
         }}
       >
-        <CategoryTitle>{category}</CategoryTitle>
+        <CategoryTitle>{category || "Category"}</CategoryTitle>
         <StoreDetailWrapper>
-          {sortStores.map((store) => (
+          {stores.map((store) => (
             <StoreDetail key={store.id} store={store} />
           ))}
         </StoreDetailWrapper>

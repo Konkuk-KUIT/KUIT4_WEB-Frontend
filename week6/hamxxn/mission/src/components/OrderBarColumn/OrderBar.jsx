@@ -14,9 +14,8 @@ const OrderBar = () => {
     <Wrapper>
       <div className="price-desc">최소 주문금액 {store.minDeliveryPrice}원</div>
       <Button
-        disabled={totalPrice < menus.minDeliveryPrice}
-        width="350px"
-        height="56px"
+        disabled={!store || totalPrice < store.minDeliveryPrice}
+        size="xl"
       >
         {totalPrice + store.deliveryFee}원 결제하기
       </Button>

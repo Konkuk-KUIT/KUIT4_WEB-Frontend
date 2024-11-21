@@ -1,10 +1,10 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import StatusBar from "../../components/StatusBar/StatusBar";
 import OrderBar from "../../components/OrderBar/OrderBar";
 
 import MenuItem from "../../components/MenuItem/MenuItem";
 
-import stores from "../../models/stores.js";
+//import stores from "../../models/stores.js";
 import {
   StoreTitle,
   StoreDesc,
@@ -13,15 +13,79 @@ import {
 } from "./Store.styles.jsx";
 
 import ColorStar from "../../assets/color-star.svg";
-import { createContext, useEffect } from "react";
-import { useContext } from "react";
+import { useEffect, useState } from "react";
 import useCartStore from "./cartStore.jsx";
+import { StoreContextProvider, GetStoreContext } from "../context.jsx";
+import { getStore } from "../../apis/stores.js";
+const Store = () => {
+  const navigate = useNavigate();
+  const { storeId } = useParams();
+  const [store, setStore] = useState();
+  const addMenu = useCartStore((state) => state.addMenu);
+  const currentStore = useCartStore((state) => state.store);
+  const clearCart = useCartStore((state) => state.clearCart);
+  //store 정보 가져옴
+  useEffect(() => {
+    getStore(storeId)
+      .then((value) => setStore(value))
+      .catch((error) => console.error("Failed to fetch store:", error));
+  }, [storeId]);
 
-const StoreContext = createContext();
+  const handleAddMenu = (menu) => {
+    if (currentStore && storeId != currentStore.id) {
+      const confirmReset = window.confirm(
+        "다른 가게의 메뉴를 추가하려고 합니다. 장바구니를 초기화하시겠습니까?"
+      );
+      if (!confirmReset) {
+        return;
+      }
+      clearCart();
+    }
+    addMenu(menu, store);
+    navigate("/cart");
+  };
+  if (!store) {
+    return <div>가게를 찾을 수 없어요 🥺</div>;
+  }
 
+  const handleClick = () => {
+    navigate("/store");
+  };
+
+  return (
+    <>
+      <StatusBar back={true} onClick={handleClick} />
+      <StoreContextProvider value={store}>
+        <div
+          style={{
+            marginTop: "var(--status-bar)",
+            padding: "20px",
+            width: "var(--width-variable)",
+            boxSizing: "border-box",
+          }}
+        >
+          <StoreIntr />
+          <MenuDetailWrapper>
+            <div className="menu-category">샐러드</div>
+            {store.menus.map((menu) => {
+              return (
+                <MenuItem
+                  key={menu.id}
+                  menu={menu}
+                  handleAddMenu={() => handleAddMenu(menu)}
+                />
+              );
+            })}
+          </MenuDetailWrapper>
+        </div>
+      </StoreContextProvider>
+      <OrderBar />
+    </>
+  );
+};
 const StoreIntr = () => {
-  //provider에서 value로 전달한 데이터 가져오기
-  const store = useContext(StoreContext);
+  const store = GetStoreContext().store;
+
   return (
     <StoreTitle>
       <div className="store-name">{store.name}</div>
@@ -45,53 +109,6 @@ const StoreIntr = () => {
         </p>
       </StoreDesc>
     </StoreTitle>
-  );
-};
-
-const Store = () => {
-  const statusBarHeight = getComputedStyle(
-    document.documentElement
-  ).getPropertyValue("--status-bar");
-  const widthV = getComputedStyle(document.documentElement).getPropertyValue(
-    "--width-variable"
-  );
-
-  const { storeId } = useParams();
-  const store = stores.find((store) => store.id.toString() === storeId);
-
-  if (!store) {
-    return <div>가게를 찾을 수 없어요 🥺</div>;
-  }
-  const setStore = useCartStore((state) => state.setStore);
-  const currentStore = useCartStore((state) => state.store);
-  useEffect(() => {
-    if (store && !currentStore) {
-      setStore(store);
-    }
-  }, []);
-  return (
-    <>
-      <StatusBar back={true} />
-      <StoreContext.Provider value={store}>
-        <div
-          style={{
-            marginTop: statusBarHeight,
-            padding: "20px 20px",
-            width: widthV,
-            boxSizing: "border-box",
-          }}
-        >
-          <StoreIntr />
-          <MenuDetailWrapper>
-            <div className="menu-category">샐러드</div>
-            {store.menus.map((menu) => {
-              return <MenuItem key={menu.id} menu={menu} store={store} />;
-            })}
-          </MenuDetailWrapper>
-        </div>
-      </StoreContext.Provider>
-      <OrderBar />
-    </>
   );
 };
 

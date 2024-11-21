@@ -27,14 +27,8 @@ const OrderBar = () => {
             {menus.reduce((acc, cur) => acc + cur.price, 0)}원
           </div>
         </PriceWrapper>
-        <Button
-          onClick={handleOrder}
-          type="button"
-          size="lg"
-          width="100px"
-          height="50px"
-        >
-          {store?.name && `${store.name}에서 `}주문하기
+        <Button onClick={handleOrder} type="button" size="lg">
+          {store ? `${store.name} 주문하기` : "주문하기"}
         </Button>
       </OrderContainer>
       <img src={BottomBar} style={{ height: "34px" }} />

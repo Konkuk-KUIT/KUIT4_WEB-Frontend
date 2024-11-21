@@ -23,19 +23,12 @@ const Header = styled.div`
 `;
 
 export default function Main() {
-  const statusBarHeight = getComputedStyle(
-    document.documentElement
-  ).getPropertyValue("--status-bar");
-  const widthV = getComputedStyle(document.documentElement).getPropertyValue(
-    "--width-variable"
-  );
-
   return (
     <div
       style={{
-        marginTop: statusBarHeight,
+        marginTop: "var(--status-bar)",
         padding: "20px 20px",
-        width: widthV,
+        width: "var(--width-variable)",
       }}
     >
       <Header>
