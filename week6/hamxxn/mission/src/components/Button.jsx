@@ -16,8 +16,6 @@ const sizeStyles = {
 };
 
 const StyledButton = styled.button`
-  height: ${(props) => (props.height ? props.height : "100px")};
-  width: ${(props) => (props.width ? props.width : "100px")};
   color: white;
   background-color: ${(props) => (props.disabled ? "#D0DFFB" : "#3182f6")};
   font-weight: 500;
@@ -33,19 +31,10 @@ const Button = ({
   type = "button",
   size = "sm",
   disabled,
-  width,
-  height,
   onClick,
 }) => {
   return (
-    <StyledButton
-      type={type}
-      size={size}
-      disabled={disabled}
-      width={width}
-      height={height}
-      onClick={onClick}
-    >
+    <StyledButton type={type} size={size} disabled={disabled} onClick={onClick}>
       {children}
     </StyledButton>
   );

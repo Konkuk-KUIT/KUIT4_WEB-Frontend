@@ -12,15 +12,37 @@ import OrderMenuItem from "../../components/OrderMenuItem/OrderMenuItem";
 import Plus from "../../assets/plus.svg";
 import useCartStore from "../Store/cartStore";
 
-const OrderDiv = () => {
-  const menus = useCartStore((state) => state.menus);
-  const price = menus.reduce((total, menu) => total + Number(menu.price), 0);
+const Cart = () => {
   const store = useCartStore((state) => state.store);
-
   const navigate = useNavigate();
-  const handleMoreBtn = () => {
+  const handleClick = () => {
     navigate("/store/" + store.id);
   };
+
+  const [searchParams] = useSearchParams();
+  const name = searchParams.get("name");
+  const price = searchParams.get("price");
+  const isBest = searchParams.get("isBest") === "true";
+  const ingredients = searchParams.get("ingredients")?.split(",");
+  const menu = {
+    name,
+    price,
+    isBest,
+    ingredients,
+  };
+
+  return (
+    <>
+      <StatusBar back={true} cancel={true} onClick={handleClick} />
+      <OrderDiv menu={menu} handleClick={handleClick} store={store} />
+      <OrderBar />
+    </>
+  );
+};
+const OrderDiv = ({ handleClick, menu, store }) => {
+  const menus = useCartStore((state) => state.menus);
+  const price = menus.reduce((total, menu) => total + Number(menu.price), 0);
+
   return (
     <>
       <OrderItemWrapper>
@@ -34,12 +56,12 @@ const OrderDiv = () => {
           ) : null}
         </OrderStore>
 
-        {menus.map((menu, idx) => (
-          <OrderMenuItem key={idx} menu={menu} />
+        {menus.map((menu) => (
+          <OrderMenuItem key={menu.id} menu={menu} />
         ))}
 
         <MoreOrderBtn>
-          <p onClick={handleMoreBtn}>더 담기</p>
+          <p onClick={handleClick}>더 담기</p>
           <img src={Plus} alt="plus icon" />
         </MoreOrderBtn>
       </OrderItemWrapper>
@@ -57,27 +79,6 @@ const OrderDiv = () => {
           <p>{price + store.deliveryFee}원</p>
         </div>
       </OrderPayWrapper>
-    </>
-  );
-};
-const Cart = () => {
-  const [searchParams] = useSearchParams();
-  const name = searchParams.get("name");
-  const price = searchParams.get("price");
-  const isBest = searchParams.get("isBest") === "true";
-  const ingredients = searchParams.get("ingredients")?.split(",");
-  const menu = {
-    name,
-    price,
-    isBest,
-    ingredients,
-  };
-
-  return (
-    <>
-      <StatusBar back={true} cancel={true} />
-      <OrderDiv menu={menu} />
-      <OrderBar />
     </>
   );
 };
