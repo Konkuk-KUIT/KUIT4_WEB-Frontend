@@ -11,7 +11,7 @@ const FoodCategory = ({ category }) => {
 
   return (
     <FoodCategoryContainer onClick={handleClick}>
-      <FoodCategoryImage src={category.img} alt={category.imgAlt} />
+      <FoodCategoryImage>{category.img}</FoodCategoryImage>
       <FoodCategoryName>{category.name}</FoodCategoryName>
     </FoodCategoryContainer>
   );
@@ -32,9 +32,14 @@ const FoodCategoryContainer = styled.div`
   cursor: pointer;
 `;
 
-const FoodCategoryImage = styled.img`
+const FoodCategoryImage = styled.div`
   width: 28px;
   height: 28px;
+
+  & > svg {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const FoodCategoryName = styled.p`

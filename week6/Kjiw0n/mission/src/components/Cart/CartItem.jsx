@@ -2,21 +2,21 @@ import styled from "styled-components";
 import { ItemTitle, ItemContent } from "../../styles/FontStyle";
 import Arrow from "/src/assets/arrowBack.svg";
 
-const CartItem = () => {
+const CartItem = ({ menu }) => {
   return (
     <CartItemContainer>
       <ItemInfoContainer>
         <ItemImg src="http://placehold.co/54" />
         <ItemInfoWrapper>
-          <ItemTitle>토마토 샐러드</ItemTitle>
+          <ItemTitle>{menu.name}</ItemTitle>
           <ItemContent style={{ width: "210px" }}>
-            추천소스, 채소볼, 베이컨추가, 시저드레싱 추가
+            {menu.ingredients}
           </ItemContent>
-          <ItemContent>10,600원</ItemContent>
+          <ItemContent>{menu.price.toLocaleString()}원</ItemContent>
         </ItemInfoWrapper>
       </ItemInfoContainer>
 
-      <ItemCnt>1개</ItemCnt>
+      <ItemCnt>{menu.cnt}</ItemCnt>
       <ArrowIcon />
     </CartItemContainer>
   );

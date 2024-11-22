@@ -1,8 +1,33 @@
 import styled from "styled-components";
 import WarnningIcon from "/src/assets/WarnningIcon.svg";
 import CartItem from "./CartItem";
+import useCartStore from "../../store/cartStore";
+import { useNavigate } from "react-router-dom";
 
 const CartList = ({ isUnderMinimumPrice }) => {
+  const store = useCartStore((state) => state.store);
+  const menus = useCartStore((state) => state.menus);
+
+  const navigate = useNavigate();
+
+  const handleMoreOrder = () => {
+    navigate(`/store/${store.id}`);
+  };
+
+  if (menus.length == 0) {
+    return <div>장바구니에 메뉴가 없어요 🥺</div>;
+  }
+
+  const countedMenus = menus.reduce((acc, item) => {
+    const existingItem = acc.find((el) => el.id === item.id);
+    if (existingItem) {
+      existingItem.cnt += 1;
+    } else {
+      acc.push({ ...item, cnt: 1 });
+    }
+    return acc;
+  }, []);
+
   return (
     <CartListContainer>
       {isUnderMinimumPrice && (
@@ -12,11 +37,13 @@ const CartList = ({ isUnderMinimumPrice }) => {
         </WarnningContainer>
       )}
 
-      <StoreName>샐로리 한남점</StoreName>
-      <CartItem />
+      <StoreName>{store?.name}</StoreName>
+      {countedMenus.map((menu) => {
+        return <CartItem key={menu.id} menu={menu} />;
+      })}
 
       <Line1></Line1>
-      <CartMore>더 담기 +</CartMore>
+      <CartMore onClick={handleMoreOrder}>더 담기 +</CartMore>
     </CartListContainer>
   );
 };
