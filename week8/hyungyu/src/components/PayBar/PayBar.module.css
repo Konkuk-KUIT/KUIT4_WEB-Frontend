@@ -1,0 +1,15 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 390px;
+    height: 95px;
+    position: fixed;
+    bottom: 34px;
+    background-color: white;
+}
+.minDeliveryPrice{
+    font-size: 17px;
+    color: #6B7684;
+}

@@ -1,0 +1,21 @@
+.container{
+    width: 390px;
+    height: 47px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+}
+.time{
+    margin-left: 27px;
+}
+.right{
+    width: 77px;
+    height: 13px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 27px;
+}

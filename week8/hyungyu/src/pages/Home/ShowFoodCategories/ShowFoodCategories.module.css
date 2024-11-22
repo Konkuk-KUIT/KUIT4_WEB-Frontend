@@ -1,0 +1,33 @@
+.container {
+    width: 106px;
+    height: 72px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: 1px solid #FBFBFB;
+    background-color: #FBFBFB;
+    border-radius: 8px;
+    transition: transform 0.2s ease-in-out;
+    
+}
+
+.container:hover {
+transform: scale(1.05);
+}
+
+.image {
+width: 24px;
+height: 24px;
+margin-bottom: 0px;
+}
+
+.foodCategoryLink{
+    text-decoration-line: none;
+}
+
+.foodCategoryName{
+    font-weight: bold;
+    font-size: 14px;
+    color: #333D4B;
+}

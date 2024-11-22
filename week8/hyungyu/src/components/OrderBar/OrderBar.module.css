@@ -1,0 +1,38 @@
+.orderBarContainer{
+    position: fixed;
+    bottom: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 16px 24px;
+    border-top: 1px solid #ddd;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* 위쪽에 그림자 추가 */
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    width: 342px;
+    height: 78px;
+    background-color: white;
+}
+
+.orderInfo{
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.totalPriceWords{
+    font-size: 15px;
+    color: #6B7684;
+}
+.totalPrice{
+    font-size: 17px;
+    color: #4E5968;
+}
+.orderBtnText{
+    text-decoration-line: none;
+    color: white;
+    font-size: 15px;
+}

@@ -1,0 +1,40 @@
+/* .mainDiv{
+    display: flex;
+    flex-direction: column;
+} */
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3열 */
+    grid-template-rows: repeat(4, auto); /* 4행 */
+    gap: 0px 0px;
+    width: 356px;
+    height: 326px;
+    margin-left: 24px;
+    margin-top: 70px;
+    padding: 0px;
+}
+
+.headerText{
+    font-size: 26px;
+    font-weight: bold;
+    color: #191F28;
+    width: 251px;
+    height: 31px;
+    margin-left: 24px;
+}
+
+.userLocation{
+    font-size: 17px;
+    width: 298px;
+    height: 20px;
+    color: #333D4B;
+    margin-left: 24px;
+}
+
+.header {
+    width: 390px;
+    height: 93px;
+    margin-top: 41px;
+    margin-bottom: 70px;
+}

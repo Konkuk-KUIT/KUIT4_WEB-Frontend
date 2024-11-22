@@ -1,0 +1,11 @@
+.header{
+    width: 390px;
+    height: 34px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.backArrow{
+    margin-left: 10px;
+    cursor: pointer;
+}
