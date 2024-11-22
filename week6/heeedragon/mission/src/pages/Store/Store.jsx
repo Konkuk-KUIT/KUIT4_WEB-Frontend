@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 import OrderBar from "../../components/OrderBar/OrderBar";
 import MenuItem from "../../components/MenuItem/MenuItem";
@@ -6,22 +6,25 @@ import stores from "../../models/stores";
 import styles from "./Store.module.css";
 import Header from "../../components/Header";
 import useCartStore from "../Cart/cartStore";
-
-import storeId from "";
+import { getStore } from "../../apis/stores";
+import { useStore } from "zustand";
 
 const Store = () => {
     const { storeId } = useParams();
-    const [store, setStore] = useState();
+    const [ store, setStore ] = useState(null);
+    const addMenu = useCartStore((state) => state.addMenu);
+
     // const setStore = useCartStore((state) => state.setStore);
 
+    useEffect(() => {
+        getStore(storeId).then(value => setStore(value));
+    },[storeId]);
+
+    const handleAddMenu = (menu) => {
+        addMenu(menu, store);
+    };
 
     // const store = stores.find((store) => store.id.toString() === storeId);
-
-    useEffect(() => {
-        if(store) {
-            setStore(store);
-        }
-    },[]);
 
     if (!store) {
         return <div>가게를 찾을 수 없어요 🥺</div>;
@@ -64,7 +67,7 @@ const Store = () => {
             <div>
                 {store.menus.map((menu) => {
                     return (
-                            <MenuItem key={menu.id} menu={menu}/>
+                            <MenuItem key={menu.id} menu={menu} handleAddMenu={()=> handleAddMenu(menu)}/>
                     );
                 })}
                 <OrderBar />
