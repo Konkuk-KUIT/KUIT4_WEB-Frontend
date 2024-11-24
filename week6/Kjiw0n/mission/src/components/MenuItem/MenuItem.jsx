@@ -1,10 +1,9 @@
 import styled from "styled-components";
 import { ItemContent, ItemTitle } from "../../styles/FontStyle";
 import Button from "../Button";
+import useCartStore from "../../store/cartStore";
 
-const MenuItem = ({ menu }) => {
-  const handleAddMenu = () => {};
-
+const MenuItem = ({ menu, handleAddMenu }) => {
   return (
     <MenuItemContainer>
       <MenuItemImage />

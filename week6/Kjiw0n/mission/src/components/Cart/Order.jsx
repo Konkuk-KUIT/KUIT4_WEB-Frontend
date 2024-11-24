@@ -1,18 +1,28 @@
 import styled from "styled-components";
 import Button from "../Button";
 import CartInfo from "./CartInfo";
+import useCartStore from "../../store/cartStore";
 
-const Order = ({ isUnderMinimumPrice }) => {
+const Order = ({ isUnderMinimumPrice, minDeliveryPrice, totalPrice }) => {
+  const store = useCartStore((state) => state.store);
+
+  if (!store) {
+    return;
+  }
+
   return (
     <>
-      <CartInfo orderPrice={12600} deliveryPrice={2000} />
+      <CartInfo orderPrice={totalPrice} deliveryFee={store.deliveryFee} />
 
       <BtnContainer>
         {isUnderMinimumPrice && (
-          <MinimumPriceInfo>최소 주문금액 13,000원</MinimumPriceInfo>
+          <MinimumPriceInfo>
+            최소 주문금액 {minDeliveryPrice.toLocaleString()}원
+          </MinimumPriceInfo>
         )}
+
         <Button size="xl" disabled={isUnderMinimumPrice}>
-          12,600원 결제하기
+          {(totalPrice + store.deliveryFee).toLocaleString()}원 결제하기
         </Button>
       </BtnContainer>
     </>

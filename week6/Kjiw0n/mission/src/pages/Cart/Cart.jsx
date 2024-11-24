@@ -1,13 +1,22 @@
 import styled from "styled-components";
 import BackBtn from "../../components/BackBtn";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CartList from "../../components/Cart/CartList";
 import Order from "../../components/Cart/Order";
+import useCartStore from "../../store/cartStore";
 
 const Cart = () => {
   const navigate = useNavigate();
   const [isUnderMinimumPrice, setIsUnderMinimumPrice] = useState(true);
+  const totalPrice = useCartStore((state) => state.getTotalPrice());
+  const minDeliveryPrice = useCartStore((state) => state.getMinDeliveryPrice());
+
+  useEffect(() => {
+    if (totalPrice >= minDeliveryPrice) {
+      setIsUnderMinimumPrice(false);
+    }
+  }, []);
 
   return (
     <>
@@ -20,7 +29,11 @@ const Cart = () => {
       <CartList isUnderMinimumPrice={isUnderMinimumPrice} />
       <Line></Line>
 
-      <Order isUnderMinimumPrice={isUnderMinimumPrice} />
+      <Order
+        isUnderMinimumPrice={isUnderMinimumPrice}
+        minDeliveryPrice={minDeliveryPrice}
+        totalPrice={totalPrice}
+      />
     </>
   );
 };

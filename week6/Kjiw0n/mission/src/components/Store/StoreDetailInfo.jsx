@@ -2,20 +2,25 @@ import styled from "styled-components";
 import { Title, GrayContent } from "../../styles/FontStyle";
 import StarIcon from "/src/assets/Star1.svg";
 
-const storeDescriptions = [
-  { label: "결제방법", value: "토스결제만 현장결제 안됨" },
-  { label: "최소주문", value: "13,000원" },
-  { label: "배달시간", value: "약 15-25분" },
-];
-
-const StoreDetailInfo = () => {
+const StoreDetailInfo = ({ store }) => {
+  const storeDescriptions = [
+    { label: "결제방법", value: "토스결제만 현장결제 안됨" },
+    {
+      label: "최소주문",
+      value: `${store.minDeliveryPrice.toLocaleString()}원`,
+    },
+    {
+      label: "배달시간",
+      value: `약 ${store.minDeliveryTime}-${store.maxDeliveryTime}분`,
+    },
+  ];
   return (
     <StoreDetailInfoContainer>
-      <Title>샐로디 한남점</Title>
+      <Title>{store.name}</Title>
       <StoreReview>
         <ReviewIcon />
-        <GrayContent>4.9</GrayContent>
-        <ReviewCnt>리뷰3,919</ReviewCnt>
+        <GrayContent>{store.rate}</GrayContent>
+        <ReviewCnt>리뷰{store.reviewCnt.toLocaleString()}</ReviewCnt>
       </StoreReview>
 
       <StoreDescContainer>

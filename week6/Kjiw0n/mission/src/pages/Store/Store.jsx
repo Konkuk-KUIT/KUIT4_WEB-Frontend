@@ -1,18 +1,25 @@
 import { useNavigate, useParams } from "react-router-dom";
-
 import MenuItem from "../../components/MenuItem/MenuItem";
-
-import stores from "../../models/stores";
 import BackBtn from "../../components/BackBtn";
 import styled from "styled-components";
 import StoreDetailInfo from "../../components/Store/StoreDetailInfo";
-
-import "../Store/Store.css";
+import { useEffect, useState } from "react";
+import { getStore } from "../../api/stores";
+import useCartStore from "../../store/cartStore";
 
 const Store = () => {
   const { storeId } = useParams();
-  const store = stores.find((store) => store.id.toString() === storeId);
+  const [store, setStore] = useState();
   const navigate = useNavigate();
+  const addMenu = useCartStore((state) => state.addMenu);
+
+  useEffect(() => {
+    getStore(storeId).then((value) => setStore(value));
+  }, []);
+
+  const handleAddMenu = (menu) => {
+    addMenu(menu, store);
+  };
 
   if (!store) {
     return <div>가게를 찾을 수 없어요 🥺</div>;
@@ -21,17 +28,18 @@ const Store = () => {
   return (
     <div>
       <BackBtn onClick={() => navigate(-1)} />
+      <StoreDetailInfo store={store} />
 
-      <StoreDetailInfo />
-
-      <Line></Line>
-
+      <Line />
       <CategoryTitle>샐러드</CategoryTitle>
-
       <MenuItemWrapper>
-        {store.menus.map((menu) => {
-          return <MenuItem key={menu.id} menu={menu} />;
-        })}
+        {store.menus.map((menu) => (
+          <MenuItem
+            key={menu.id}
+            menu={menu}
+            handleAddMenu={() => handleAddMenu(menu)}
+          />
+        ))}
       </MenuItemWrapper>
     </div>
   );
@@ -58,9 +66,11 @@ const CategoryTitle = styled.h4`
   margin: 0 0 11px 24px;
 `;
 
-const MenuItemWrapper = styled.div.attrs({
-  className: "MenuItemWrapper",
-})`
+const MenuItemWrapper = styled.div`
   height: 380px;
   overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
