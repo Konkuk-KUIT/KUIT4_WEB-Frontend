@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 const sizeStyles = {
   sm: {
@@ -26,23 +25,19 @@ const StyledButton = styled.button`
   padding: ${(props) => sizeStyles[props.size]?.padding};
   font-size: ${(props) => sizeStyles[props.size]?.fontSize};
   /* width: 84px; */
-height: 38px;
-top: 19px;
-left: 282px;
-padding: 10px 16px 10px 16px;
-gap: 0px;
+top: ${(props)=>props.$top};
+left: ${(props)=>props.$left};
 border-radius: 8px;
-opacity: 0px;
 position: absolute;
 `;
 
-const Button = ({ children, type = "button", size = "sm", disabled }) => {
+const Button = ({ children, type = "button", size = "sm", disabled,onClick ,top,left}) => {
   return (
-    <Link to={"/cart"}>
-    <StyledButton type={type} size={size} disabled={disabled}>
+  //  <Link to={"/cart"}>
+    <StyledButton type={type} size={size} disabled={disabled} onClick={onClick} $top={top} $left={left}>
       {children}
     </StyledButton>
-    </Link>
+  //  </Link>
   );
 };
 

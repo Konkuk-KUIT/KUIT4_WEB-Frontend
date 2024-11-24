@@ -26,7 +26,7 @@ position: absolute;
 `;
 
 export const TotalAmount = styled.div`
-width: 66px;
+/* width: 66px; */
 height: 20px;
 top: 39px;
 left: 24px;

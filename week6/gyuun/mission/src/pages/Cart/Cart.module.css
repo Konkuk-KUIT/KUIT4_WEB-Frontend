@@ -127,3 +127,28 @@ line-height: 20.29px;
 text-align: right;
 
 }
+
+
+.Botbox{
+    width: 390px;
+height: 129px;
+position: relative;
+
+
+}
+.minde{
+    height: 20px;
+    left: 113px;
+    position: absolute;
+    font-family: Pretendard;
+font-size: 17px;
+font-weight: 500;
+line-height: 20.29px;
+text-align: center;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+color: #6B7684;
+}
+/* .buttonbox{
+
+} */
