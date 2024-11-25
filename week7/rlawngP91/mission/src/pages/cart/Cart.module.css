@@ -1,0 +1,168 @@
+.CartContainer{
+    width: 100%;
+    min-width: 390px;
+    margin: 0 auto;
+    background-color: white;
+}
+
+.storeInfoContainer {
+    width: 100%;
+    height: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #FFF;
+    margin-top: 68px;
+
+    border-top:  16px solid #E5E5E5;
+}
+
+.storeName {
+    color: #6B7684;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.alert {
+    display: flex;
+    align-items: center;
+}
+
+.alertContainer {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.minOrderText {
+    color: #F04452;
+    font-family: Pretendard;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.exclamationMark {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+}
+
+.addMoreContainer{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    padding: 19px 24px 20px 24px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+
+    border-bottom: 16px solid #E5E5E5;
+}
+
+.addMoreButton{
+    width: 100%;
+    color: #3182F6;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    background-color: white;
+}
+
+.orderSummaryContainer {
+    width: 100%;
+    padding: 20px;
+    background: #FFF;
+}
+
+.summaryRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.summaryRow:last-child {
+    margin-bottom: 0;
+}
+
+.summaryLabel {
+    color: #6B7684;
+    font-family: Pretendard;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.summaryValue {
+    color: #333D4B;
+    font-family: Pretendard;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.totalRow {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #E5E5E5;
+}
+
+.totalRow .summaryLabel,
+.totalRow .summaryValue {
+    font-weight: 700;
+    font-size: 17px;
+}
+
+.bottombar{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 129px;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+}
+
+.totalPrice{
+    display: flex;
+    color: #6B7684;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-top: 0px;
+}
+
+.orderBtn{
+    display: inline-flex;
+    height: 56px;
+    padding: 18px 112px 19px 113px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 16px;
+    background: #3182F6;
+    border: none;
+    cursor: pointer; 
+}
+.orderBtn:disabled {
+    background: #DDE1E6;  /* 비활성화 시 색상 */
+    cursor: not-allowed;
+}
+
+.orderBtnText{
+    color: #FFF;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}

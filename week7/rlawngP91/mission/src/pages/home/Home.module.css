@@ -1,0 +1,45 @@
+.container {
+    max-width: 390px;
+    margin: 0 auto;
+    min-height: 100vh;
+    padding: 0 16px;
+}
+
+.header_conatiner {
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    padding: 25px 24px 4px 24px;
+    gap: 8px;
+}
+
+.title {
+    color: #191F28;
+    margin-top: 90px;
+    font-family: Pretendard;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.address {
+    color: #333D4B;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.menu_grid {
+    display: grid;
+    align-items: flex-start;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    margin-top: 40px;
+    padding: 16px;
+}

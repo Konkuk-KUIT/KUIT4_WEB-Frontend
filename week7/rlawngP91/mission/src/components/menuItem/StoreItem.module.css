@@ -1,0 +1,106 @@
+.storeItem {
+    width: 100%;
+    padding: 1.25rem;
+    border-bottom: 1px solid #e5e7eb;
+    cursor: pointer;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    cursor: pointer;  /* 추가 */
+    transition: background-color 0.2s;
+  }
+  
+  .storeItem:hover {
+      background-color: #f9fafb;
+  }
+  
+
+.imageContainer {
+    width: 70px;
+    height: 70px;
+    margin-left: 10px;
+    margin-top: 15px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #f3f4f6;
+}
+.image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content{
+  flex: 1;
+  min-width: 0; /* 텍스트 오버플로우 방지 */
+}
+
+.header {
+    margin-bottom: 0.75rem;
+}
+.rateNum{
+    color: #333D4B;
+font-family: Pretendard;
+font-size: 17px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+.name {
+    margin-bottom: 0.5rem;
+
+    color: #333D4B;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.ratingContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #6b7280;
+    font-size: 0.875rem;
+
+    color: #6B7684;
+    font-family: Pretendard;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: #000;
+    font-weight: 500;
+}
+
+.starIcon {
+    width: 13.161px;
+    height: 13.161px;
+    flex-shrink: 0;
+    display: inline-block;
+}
+
+.reviewCount {
+    color: #6b7280;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    color: #6B7684;
+    font-family: Pretendard;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}

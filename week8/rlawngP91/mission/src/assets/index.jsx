@@ -1,0 +1,17 @@
+export { default as pizzaIcon } from './pizza.png';
+export { default as saladIcon } from './salad.png';
+export { default as hamburgerIcon } from './hamburger.png';
+export { default as koreanIcon } from './korean.png';
+export { default as noodlesIcon } from './noodles.png';
+export { default as chickenIcon } from './chicken.png';
+export { default as sushiIcon } from './sushi.png';
+export { default as sandwichIcon } from './sandwich.png';
+export { default as pastaIcon } from './pasta.png';
+export { default as dessertIcon } from './dessert.png';
+export { default as cokeIcon } from './coke.png';
+export { default as moreIcon } from './more.png';
+export { default as menuImgIcon } from './thumbnail.png';
+export { default as starIcon } from './star.svg';
+export { default as backBtn } from './back-arrow.png';
+export { default as exclamation } from './exclamation.svg';
+export { default as menuDetail } from './menudetail.png';
