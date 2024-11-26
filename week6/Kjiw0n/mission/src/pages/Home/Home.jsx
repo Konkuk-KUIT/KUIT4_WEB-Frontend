@@ -2,19 +2,32 @@ import styled from "styled-components";
 import FoodCategory from "../../components/Home/FoodCategory";
 import { Title } from "../../styles/FontStyle";
 
+import Pizza from "@/assets/pizza.svg";
+import Salad from "@/assets/salad.svg";
+import Hamburger from "@/assets/hamburger.svg";
+import KoreanFood from "@/assets/koreanFood.svg";
+import SnackFood from "@/assets/snackFood.svg";
+import Chicken from "@/assets/chicken.svg";
+import Sushi from "@/assets/sushi.svg";
+import Sandwich from "@/assets/sandwich.svg";
+import Pasta from "@/assets/pasta.svg";
+import Dessert from "@/assets/dessert.svg";
+import Coffee from "@/assets/coffee.svg";
+import MeatBall from "@/assets/meatballsMenu.svg";
+
 const dummyCategories = [
-  { img: "pizza.svg", imgAlt: "pizza icon", name: "피자" },
-  { img: "pizza.svg", imgAlt: "pizza icon", name: "피자" },
-  { img: "pizza.svg", imgAlt: "pizza icon", name: "피자" },
-  { img: "pizza.svg", imgAlt: "pizza icon", name: "피자" },
-  { img: "pizza.svg", imgAlt: "pizza icon", name: "피자" },
-  { img: "pizza.svg", imgAlt: "pizza icon", name: "피자" },
-  { img: "pizza.svg", imgAlt: "pizza icon", name: "피자" },
-  { img: "pizza.svg", imgAlt: "pizza icon", name: "피자" },
-  { img: "pizza.svg", imgAlt: "pizza icon", name: "피자" },
-  { img: "pizza.svg", imgAlt: "pizza icon", name: "피자" },
-  { img: "pizza.svg", imgAlt: "pizza icon", name: "피자" },
-  { img: "meatballsMenu.svg", imgAlt: "meatballs menu icon", name: "더보기" },
+  { img: <Pizza />, name: "피자" },
+  { img: <Salad />, name: "샐러드" },
+  { img: <Hamburger />, name: "햄버거" },
+  { img: <KoreanFood />, name: "한식" },
+  { img: <SnackFood />, name: "분식" },
+  { img: <Chicken />, name: "치킨" },
+  { img: <Sushi />, name: "초밥" },
+  { img: <Sandwich />, name: "샌드위치" },
+  { img: <Pasta />, name: "파스타" },
+  { img: <Dessert />, name: "디저트" },
+  { img: <Coffee />, name: "커피" },
+  { img: <MeatBall />, name: "더보기" },
 ];
 
 const Home = () => {

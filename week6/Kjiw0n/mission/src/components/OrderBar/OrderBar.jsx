@@ -2,8 +2,10 @@ import styled from "styled-components";
 import Button from "../Button";
 import { useNavigate } from "react-router-dom";
 import { GrayContent } from "../../styles/FontStyle";
+import useCartStore from "../../store/cartStore";
 
-const OrderBar = ({ menus = [], store = null }) => {
+const OrderBar = () => {
+  const menus = useCartStore((state) => state.menus);
   const navigate = useNavigate();
 
   const handleOrder = () => {
@@ -19,7 +21,7 @@ const OrderBar = ({ menus = [], store = null }) => {
         </GrayContent>
       </OrderBarTextWrapper>
       <Button onClick={handleOrder} size="lg">
-        {store?.name ? `${store.name}에서 ` : ""}주문하기
+        주문하기
       </Button>
     </OrderBarContainer>
   );

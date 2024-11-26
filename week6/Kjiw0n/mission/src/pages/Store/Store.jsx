@@ -7,31 +7,28 @@ import BackBtn from "../../components/BackBtn";
 import styled from "styled-components";
 import StoreDetailInfo from "../../components/Store/StoreDetailInfo";
 
-import "../Store/Store.css";
-
 const Store = () => {
   const { storeId } = useParams();
-  const store = stores.find((store) => store.id.toString() === storeId);
+  const pageStore = stores.find((store) => store.id.toString() === storeId);
   const navigate = useNavigate();
 
-  if (!store) {
+  if (!pageStore) {
     return <div>가게를 찾을 수 없어요 🥺</div>;
   }
+
+  const { menus, ...storeInfo } = pageStore;
 
   return (
     <div>
       <BackBtn onClick={() => navigate(-1)} />
+      <StoreDetailInfo storeInfo={storeInfo} />
 
-      <StoreDetailInfo />
-
-      <Line></Line>
-
+      <Line />
       <CategoryTitle>샐러드</CategoryTitle>
-
       <MenuItemWrapper>
-        {store.menus.map((menu) => {
-          return <MenuItem key={menu.id} menu={menu} />;
-        })}
+        {menus.map((menu) => (
+          <MenuItem key={menu.id} menu={menu} pageStore={pageStore} />
+        ))}
       </MenuItemWrapper>
     </div>
   );
@@ -58,9 +55,11 @@ const CategoryTitle = styled.h4`
   margin: 0 0 11px 24px;
 `;
 
-const MenuItemWrapper = styled.div.attrs({
-  className: "MenuItemWrapper",
-})`
+const MenuItemWrapper = styled.div`
   height: 380px;
   overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;

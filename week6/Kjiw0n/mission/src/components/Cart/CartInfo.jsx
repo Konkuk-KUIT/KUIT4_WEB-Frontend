@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { GrayContent } from "../../styles/FontStyle";
 
-const CartInfo = ({ orderPrice, deliveryPrice }) => {
-  const totalPrice = orderPrice + deliveryPrice;
+const CartInfo = ({ orderPrice, deliveryFee }) => {
+  const totalPrice = orderPrice + deliveryFee;
 
   return (
     <CartInfoContainer>
@@ -12,7 +12,7 @@ const CartInfo = ({ orderPrice, deliveryPrice }) => {
       </Wrapper>
       <Wrapper>
         <CartContent>배달요금</CartContent>
-        <CartPrice>{deliveryPrice.toLocaleString()}원</CartPrice>
+        <CartPrice>{deliveryFee.toLocaleString()}원</CartPrice>
       </Wrapper>
 
       <TotalWrapper>
