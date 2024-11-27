@@ -1,13 +1,15 @@
-import { useEffect } from "react";
+import React, {useEffect} from "react";
 import Router from "./pages/Router";
 import { Normalize } from "styled-normalize";
-import {getStore} from "./apis/stores";
+import useCartStore from "./pages/Cart/cartStore";
+
 
 const App = () => {
+  const fetchCart = useCartStore((state) => state.fetchCart);
 
   useEffect(() => {
-    getStore(1).then((value) => console.log(value));
-  }, [])
+    fetchCart();
+  },[]);
 
   return (
     <>

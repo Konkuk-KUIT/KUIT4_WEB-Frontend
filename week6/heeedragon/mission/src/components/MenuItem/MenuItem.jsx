@@ -3,12 +3,12 @@ import Button from '../Button';
 import styles from "./MenuItem.module.css";
 import useCartStore from '../../pages/Cart/cartStore';
 
-const MenuItem = ({ menu }) => {
-    const addMenu = useCartStore((state) => state.addMenu);
-
-    const handleAddMenu = () => {
-        addMenu(menu);
-    };
+const MenuItem = ({ menu, handleAddMenu }) => {
+    
+    //const addMenu = useCartStore((state) => state.addMenu);
+    //const handleAddMenu = () => {
+    //    addMenu(menu);
+    //};
 
     return (
         <>
